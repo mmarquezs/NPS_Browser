@@ -155,8 +155,8 @@ namespace NPS
                 };
 
                 ProcessStartInfo a = new ProcessStartInfo();
-                a.WorkingDirectory = Path.Combine(Settings.Instance.downloadDir,"\\");
-                a.FileName = string.Format("\"{0}\"", Settings.Instance.pkgPath);
+                a.WorkingDirectory = Settings.Instance.downloadDir;
+                a.FileName = Settings.Instance.pkgPath;
                 a.WindowStyle = ProcessWindowStyle.Hidden;
                 a.CreateNoWindow = true;
                 a.Arguments = replacements.Aggregate(Settings.Instance.pkgParams.ToLower(), (str, rep) => str.Replace(rep.Key, rep.Value));
