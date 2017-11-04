@@ -147,7 +147,7 @@ namespace NPS
                 var replacements = new Dictionary<string, string>
                 {
                     //["{pkgfile}"] = $"\"{Settings.Instance.downloadDir}\\{currentDownload.DownloadFileName}.pkg\"",
-                    ["{pkgfile}"] = Path.Combine(Settings.Instance.downloadDir,currentDownload.DownloadFileName+".pkg"),
+                    ["{pkgfile}"] = "\""+Path.Combine(Settings.Instance.downloadDir,currentDownload.DownloadFileName+".pkg")+"\"",
                     ["{titleid}"] = currentDownload.TitleId.Substring(0, 9),
                     ["{gametitle}"] = Regex.Replace(currentDownload.IsDLC ? currentDownload.ParentGameTitle : currentDownload.TitleName, "[/:\" *?<>|\\r\\n]+", string.Empty),
                     ["{region}"] = currentDownload.Region,
