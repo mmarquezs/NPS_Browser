@@ -48,11 +48,21 @@ namespace NPS
             }
         }
 
+        private static bool IsRunningOnMono ()
+        {
+            return Type.GetType ("Mono.Runtime") != null;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             using (var fbd = new OpenFileDialog())
             {
-                fbd.Filter = "|*.exe";
+                if (IsRunningOnMono()) {
+                        fbd.Filter = "|*";
+                    }
+                else {
+                    fbd.Filter = "|*.exe";
+                }
 
                 DialogResult result = fbd.ShowDialog();
 
